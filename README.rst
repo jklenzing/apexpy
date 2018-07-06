@@ -10,6 +10,12 @@ apex, and quasi-dipole coordinates as well as getting modified apex and
 quasi-dipole base vectors (Richmond [1995] [2]_). MLT calculations are also
 included. The package is free software (MIT license).
 
+Dependencies
+=============
+
+This package wraps fortran code, and so requires a fortran compiler.  The
+default compiler is gfortran.  NumPy is also a requirement.
+
 Quick start
 ===========
 
