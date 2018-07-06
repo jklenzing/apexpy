@@ -774,11 +774,6 @@ class Apex(object):
             Altitude in km
         coords : {'geo', 'apex', 'qd'}, optional
             Input coordinate system
-        return_all : bool, optional
-            Will also return f3, g1, g2, and g3, and f1 and f2 have 3 components
-            (the last component is zero). Requires `lat`, `lon`, and `height`
-            to be broadcast to 1D (at least one of the parameters must be 1D
-            and the other two parameters must be 1D or 0D).
         precision : float, optional
             Precision of output (degrees) when converting to geo. A negative
             value of this argument produces a low-precision calculation of
