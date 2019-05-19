@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import division, print_function, absolute_import, unicode_literals
+from __future__ import division, print_function, absolute_import,
+from __future__ import unicode_literals
 
 import os
 import subprocess
@@ -13,8 +14,9 @@ os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 def setup_function(function):
     try:
         os.remove('tests/output.txt')
-    except:
+    except OSError:
         pass
+
 
 teardown_function = setup_function
 
@@ -101,7 +103,8 @@ def test_convert_stdin_stdout():
 
 
 def test_convert_refh():
-    p = subprocess.Popen('echo 60 15 | apexpy geo apex 2000 --height 100 --refh=300', shell=True, stdout=subprocess.PIPE)
+    str_cmd = 'echo 60 15 | apexpy geo apex 2000 --height 100 --refh=300'
+    p = subprocess.Popen(str_cmd, shell=True, stdout=subprocess.PIPE)
     stdout, _ = p.communicate()
     p.wait()
     np.testing.assert_allclose(np.array(stdout.split(b' '), dtype=float),
